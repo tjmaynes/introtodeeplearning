@@ -6,6 +6,12 @@ function check_requirements() {
   if [[ -z "$(command -v python)" ]]; then
     echo "Please install 'python' before running this script"
     exit 1
+  elif [[ -z "$(command -v jupyter)" ]]; then
+    echo "Please install 'jupyter' before running this script"
+    exit 1
+  elif [[ -z "$(command -v ipython)" ]]; then
+    echo "Please install 'ipython' before running this script"
+    exit 1
   fi
 }
 
@@ -23,6 +29,8 @@ function main() {
   python -m pip install build
 
   python -m pip install --no-cache -e '.[dev]'
+  
+  ipython kernel install --user --name=.venv
 }
 
 main
