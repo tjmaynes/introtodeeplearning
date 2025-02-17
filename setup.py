@@ -10,7 +10,8 @@ def get_dist(pkgname):
 
 install_deps = [
     'comet_ml',
-    'numpy',
+    "numpy==2.0.2",
+    "matplotlib==3.10.0",
     'regex',
     'tqdm',
     'gym',
@@ -21,7 +22,7 @@ install_deps = [
     'peft',
     'lion-pytorch',
 ]
-tf_ver = '2.0.0a'
+tf_ver = '2.18.0'
 if get_dist('tensorflow>='+tf_ver) is None and get_dist('tensorflow_gpu>='+tf_ver) is None:
     install_deps.append('tensorflow>='+tf_ver)
 
